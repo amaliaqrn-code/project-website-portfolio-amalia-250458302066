@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahra Laundry</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- scroll smooth -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <link rel="icon" href="https://i.pinimg.com/736x/87/f8/c0/87f8c09b4669def8070fcaee960f03fe.jpg">
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- navbar -->
+   <nav class="sticky top-0 z-50 bg-blue-900 shadow-lg">
+    <div class=" container mx-auto px-4 flex justify-between items-center h-16">
+      <h1 class="text-xl font-bold text-white">
+        <a href="#home">Zahra Laundry</a>
+      </h1>
+    </div>
+
+    <!-- hamburger untuk mobile -->
+     <button 
+     id="hamburger"
+     class="md:hidden px-2 pt-1 pb-2 rounded hover:bg-slate-800 focus:outline-none focus:ring-2 
+     focus:ring-orange-500 absolute right-4 top-4"
+     aria-expanded="false"
+     aria-controls="mobile-menu"
+     aria-label="Toggle menu">
+
+     <!-- icon open -->
+      <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke-width="2" 
+      stroke="currentColor" 
+      class="w-6 h-6 text-white">
+      <path stroke-linecap="round" stroke-linejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+
+      <!-- icon close -->
+       <svg 
+       xmlns="http://www.w3.org/2000/svg" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor" 
+       class="w-6 h-6 text-white hidden">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+  d="M6 18 18 6M6 6l12 12" />
+</svg>
+     </button>
+    <!-- Menu Desktop -->
+     <div class="hidden md:flex space-x-6 text-slate-300 font-semibold absolute right-4 top-4">
+      <a href="#home" class="hover:text-orange-400">Home</a>
+      <a href="#layanan" class="hover:text-orange-400">Layanan</a>
+      <a href="#harga" class="hover:text-orange-400">Harga</a>
+      <a href="#testimoni" class="hover:text-orange-400">Testimoni</a>
+      <a href="#kontak" class="hover:text-orange-400">Kontak</a>
+     </div>
+
+    <!-- Menu Mobile -->
+     <div id="mobile-menu" class="hidden md:hidden text-white">
+      <a href="#home" class="block px-3 py-2 hover:text-orange-400">Home</a>
+      <a href="#layanan" class="block px-3 py-2 hover:text-orange-400">Layanan</a>
+      <a href="#harga" class="block px-3 py-2 hover:text-orange-400">Harga</a>
+      <a href="#testimoni" class="block px-3 py-2 hover:text-orange-400">Testimoni</a>
+      <a href="#kontak" class="block px-3 py-2 hover:text-orange-400">Kontak</a>
+     </div>
+   </nav>
+
+   <!-- hero -->
+    <section
+    id="home"
+    class="bg-blue-700 text-white py-20 text-center">
+
+    <h2
+    class="text-4xl font-bold mb-4">
+    Selamat Datang di Zahra Laundry!
+    </h2>
+
+    <p
+    class="text-lg">
+    Bersih, Cepat, Wangi dan Terjangkau
+    </p>
+
+    </section>
+
+    <!-- layanan -->
+     <section
+     id="layanan" class="py-16 bg-gray-200">
+     <div class="container mx-auto text-center">
+      <h3 class="text-3xl text-black mb-8 font-bold">
+        Layanan Kami
+      </h3>
+
+      <!-- Grid Layanan -->
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <img src="https://i.pinimg.com/736x/4d/35/7d/4d357d83ad1b582fb6d25d5bd6cf293b.jpg" alt="" 
+          class="w-full h-56 object-cover">
+
+          <!-- isi card1 -->
+           <div class="p-4 flex-1">
+            <h4 class="font-semibold text-xl mb-2">
+              Cuci Kiloan
+            </h4>
+            <p class="text-gray-600">
+              Layanan hemat untuk pakaian sehari-hari Anda
+            </p>
+           </div>
+        </div>
+         <!-- card 2 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <img src="https://i.pinimg.com/736x/73/c2/88/73c2884844b9f3c48cdc6d81e579c073.jpg" alt="" 
+          class="w-full h-56 object-cover">
+
+          <!-- isi card -->
+           <div class="p-4 flex-1">
+            <h4 class="font-semibold text-xl mb-2">
+              Cuci Satuan
+            </h4>
+            <p class="text-gray-600">
+              Cocok untuk pakaian spesial dan berharga
+            </p>
+           </div>
+        </div>
+
+        <!-- card 3 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <img src="https://i.pinimg.com/1200x/ef/3c/77/ef3c770e1413b29bbe96ede66b68fc62.jpg" alt="" 
+          class="w-full h-56 object-cover">
+
+          <!-- isi card -->
+           <div class="p-4 flex-1">
+            <h4 class="font-semibold text-xl mb-2">
+              Setrika
+            </h4>
+            <p class="text-gray-600">
+              Pakaian licin, rapi, dan wangi
+            </p>
+           </div>
+        </div>
+       </div>
+     </div>
+     </section>
+
+     <!-- harga -->
+      <section id="harga" class="py-6">
+        <div class="container mx-auto text-center">
+          <h3 class="text-3xl font-bold mb-8">Daftar Harga
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- card 1 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <h4 class="text-xl font-bold mb-2">Cuci Kiloan</h4>
+              <p class="text-slate-600 mb-2">Rp 7.000/kg</p>
+             </div>
+             <!-- card 2 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <h4 class="text-xl font-bold mb-2">Cuci Satuan</h4>
+              <p class="text-slate-600 mb-2">Rp 10.000/pcs</p>
+             </div>
+             <!-- card 3 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <h4 class="text-xl font-bold mb-2">Setrika</h4>
+              <p class="text-slate-600 mb-2">Rp 5.000/kg</p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- testimoni -->
+      <section id="testimoni" class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+          <h3 class="text-3xl font-bold mb-8">Testimoni Pelanggan
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- card 1 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <p class="text-slate-600 mb-2 italic">"Pakaian saya bersih, wangi, dan rapi. Terima kasih Zahra Laundry!"</p>
+              <h4 class="text-xl font-bold mb-2">-Ani</h4>
+             </div>
+             <!-- card 2 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <p class="text-slate-600 mb-2 italic">"Pelayanan cepat dan hasil memuaskan. Recommended!"</p>
+               <h4 class="text-xl font-bold mb-2">-Budi</h4>
+             </div>
+             <!-- card 3 -->
+             <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+              <p class="text-slate-600 mb-2 italic">"Pakaian bersih dan wangi, selesai tepat waktu. Terimakasih!"</p>
+              <h4 class="text-xl font-bold mb-2">-Dian</h4>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- kontak -->
+       <section id="kontak" class="py-16 text-center bg-blue-700 text-white">
+        <h3 class="text-3xl font-bold mb-4">Hubungi Kami</h3>
+        <p class="mb-16">WhatsApp:0812-6719-1668</p>
+        <a href="https://wa.me/6282285972542?text=Halo%20saya%20mau%20pesan%20laundry"
+        class="mb-6 px-5 py-4 bg-amber-400 text-black rounded-xl font-bold hover:bg-amber-600">Chat via WhatsApp</a>
+       </section>
+
+       <!-- footer -->
+        <footer class="bg-blue-900 text-white text-center py-4">
+          <p>&copy;2025 Zahra Laundry. All rights reserved</p>
+
+        </footer>
+
+   <!-- Ini javaScript untuk hamburger -->
+    <script>
+      const hamburger = document.getElementById("hamburger")
+      const mobileMenu = document.getElementById("mobile-menu")
+      const iconOpen = document.getElementById("icon-open")
+      const iconClose = document.getElementById("icon-close")
+
+    // event klik hamburger
+    hamburger.addEventListener("click",()=>{
+      mobileMenu.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
+    });
+    </script>
+  
+</body>
+</html>

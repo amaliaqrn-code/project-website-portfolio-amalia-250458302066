@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insenia Sinergia</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="shortcut icon"
+      href="https://i.pinimg.com/1200x/e1/aa/ea/e1aaea8420d4d2fa5d5f25f65d621470.jpg"
+      type=""
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  <style>
+    .font-roboto {
+      font-family: "Roboto", sans-serif;
+    }
+  </style>
+</head>
+<body>
+    <nav  class="sticky top-0 z-50 bg-white"
+      aria-label="Primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- untuk menu laptop -->
+        <div class="flex items-center justify-between h-16 px-10">
+        
+          <a
+            href="#"
+            class="flex items-center text-white text-xl font-roboto uppercase tracking-wider font-bold"
+            >
+            <img src="image/insania-removebg-preview.png" alt="" class="w-35 h-15"></a
+          >
+
+          <button
+            id="hamburger"
+            class="md:hidden px-2 pt-1 pb-2  rounded hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-inset"
+            aria-expanded="false"
+            aria-controls="main-menu"
+            aria-label="Toggle menu"
+          >
+            <!-- icon open --> 
+            <svg
+              id="icon-open"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 "
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+
+            <!-- icon close -->
+            <svg
+              id="icon-close"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 hidden"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div id="main-menu" class="hidden md:flex md:items-center md:gap-2">
+            <div
+              class="flex flex-col md:flex-row md:items-center md:gap-2 text-right md:text-left"
+            >
+              <a
+                href="#home"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Home</a
+              >
+              <a
+                href="#about us"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >About Us</a
+              >
+              <a
+                href="#partner"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Partner</a
+              >
+              <a
+                href="#service"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Service</a
+              >
+              <a
+                href="#galeri"
+                class="px-3 py-2  text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Galeri</a
+              >
+              <a
+                href="#info"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Info</a
+              >
+              <a
+                href="#karir"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Karir</a
+              >
+              <a
+                href="#kontak"
+                class="px-3 py-2 text-black hover:text-orange-400 uppercase font-roboto font-bold"
+                >Kontak</a
+              >
+             
+            </div>
+            <div class="px-15">
+               <a
+                href="daftar.html"
+                class="bg-[#6fa9ab] hover:bg-white rounded-xl px-4 py-2 font-roboto font-bold text-slate-200 justify-center items-center"
+                >Masuk/Daftar</a
+              >
+            </div>
+          </div>
+          <!-- Menu untuk Hp -->
+          <div
+            id="mobile-panel"
+            class="md:hidden hidden border-t border-slate-800 py-2"
+          >
+            <a
+              href="#home"
+              class="block px-3 py-2 text-slate-300 hover:text-orange-300 uppercase font-roboto"
+              >Home</a
+            >
+            <a
+              href="#about us"
+              class="block px-3 py-2 text-slate-300 hover:text-orange-300 uppercase font-roboto"
+              >About Us</a
+            >
+            <a
+              href="#partner"
+              class="block px-3 py-2 text-slate-300 hover:text-orange-300 uppercase font-roboto"
+              >Partner</a
+            >
+            <a
+              href="#galeri"
+              class="block px-3 py-2 text-slate-300 hover:text-orange-300 uppercase font-roboto"
+              >Galeri</a
+            >
+            <a
+              href="#info"
+              class="block px-3 py-2 text-slate-300 hover:text-orange-300 uppercase font-roboto"
+              >Info</a
+            >
+            <a
+              href="#karir"
+              class="block bg-amber-600 hover:bg-orange-300 rounded-xl px-4 py-2 font-roboto font-bold text-slate-200 justify-center items-center"
+              >Karir</a
+            >
+            <a
+              href="#kontak"
+              class="block bg-amber-600 hover:bg-orange-300 rounded-xl px-4 py-2 font-roboto font-bold text-slate-200 justify-center items-center"
+              >Kontak</a
+            >
+             <div class="px-15">
+               <a
+                href="#daftar.html"
+                class="bg-[#6fa9ab] hover:bg-white rounded-xl px-4 py-2 font-roboto font-bold text-slate-200 justify-center items-center"
+                >Masuk/Daftar</a
+              >       
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="bg-[#6fa9ab] grid-cols-2 flex text-white">
+     <div id="home" class="text-left items-center py-15 pl-20 pr-2">
+    <h2
+    class="font-bold mb-4 pb-8 text-6xl">Selamat Datang di Insania Sinergia
+    </h2>
+
+    <p
+    class="text-lg py-1 pb-8 ">
+    Penyedia Jasa Konsultasi dan rekomendasi terbaik terkait rencana bisnis maupun permasalahan bisnis yang tengah dihadapi
+    </p>
+
+    <button class="bg-white text-[#6fa9ab] rounded-lg px-4 py-1 font-bold">Segera Atur Jadwal Konsultasi Anda
+    </button>
+
+    </div>
+
+    <div class="px-20 pt-2 pb-15 text-right">
+      <img src="image/image.png" alt="" class="w-220 H-150">
+    </div>
+    </section>
+  
+    <!-- section dua -->
+    <section id="about us"
+    class="bg-white grid-cols-2 flex space-x-2">
+      <div class="text-left my-15 pl-20 ">
+        <img src="image/gambar2.png" alt="" class="w-650 h-120">
+        
+      </div>
+      <div class="text-right pl-2 mx-10 my-25 mr-20 ml-6">
+        <h1 class="font-semibold text-4xl">Tentang Kami</h1>
+        <p class="text-right text-lg">
+          Jasa kami mencakup bantuan nasihat bisnis, bimbingan dan operasional berbagai fungsi
+          manajemen bisnis, konsultasi manajemen olah agronomist dan agricultural economis pada bidang pertanian...
+        </p>
+        <button class="bg-[#6fa9ab] text-white rounded-xl px-4 py-2 my-4">
+          Tampilkan Lebih Banyak
+        </button>
+      </div>
+    </section>
+
+    <section id="partner">
+      <h2 class="text-4xl font-bold text-center">
+        Mengapa Harus Kami?
+      </h2>
+      <div class="grid-cols-3 flex py-20 mx-10">
+        <div class="items-center shadow-xl rounded-2xl text-center border-[#6fa9ab] border-2 py-2 px-4 m-2 ">
+          <img src="image/icon1.svg" alt="" class="px-40 py-4">
+          <h6 class="font-bold">Pandangan Objektif</h6>
+          <p>Konsultan bisnis dapat memberi pandangan pihak ketiga tentang bisnis yang dijalankan.
+            Dengan melakukan evaluasi operasi yang jujur, akan diberikan pandangan objektif yang dapat membantu
+            dengan perencanaan di masa depan.</p>
+        </div>
+        <div class="items-center text-center rounded-2xl shadow-xl border-[#6fa9ab] border-2 py-2 px-4 m-2">
+          <img src="image/icon2.svg" alt="" class="px-40 py-4">
+          <h6 class="font-bold">Pandangan Objektif</h6>
+          <p>Konsultan bisnis dapat memberi pandangan pihak ketiga tentang bisnis yang dijalankan.
+            Dengan melakukan evaluasi operasi yang jujur, akan diberikan pandangan objektif yang dapat membantu
+            dengan perencanaan di masa depan.</p>
+        </div>
+        <div class="items-center text-center rounded-2xl shadow-xl border-[#6fa9ab] border-2 py-2 px-4 m-2 ">
+           <img src="image/icon.svg" alt="" class="px-40 py-4">
+          <h6 class="font-bold">Pandangan Objektif</h6>
+          <p>Konsultan bisnis dapat memberi pandangan pihak ketiga tentang bisnis yang dijalankan.
+            Dengan melakukan evaluasi operasi yang jujur, akan diberikan pandangan objektif yang dapat membantu
+            dengan perencanaan di masa depan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pelayanan Kami -->
+     <section id="#service">
+        <h2 class="mx-10 text-4xl font-bold">Pelayanan Kami</h2>
+        <div class="grid-cols-4 flex py-20 m-4 text-center px-10">
+        <div class="border-1 border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab] transition">
+          <img src="image/0c2b4be93b3361cefe0e290900fb4ec19dc3a368.png" alt="">
+          <h6 class="font-bold">E-Faktur Jasa</h6>
+        </div>
+        <div class="border-1 border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/5768a22b2de1463b9ef61d46f0240e015a49006b.png" alt="">
+          <h6 class="font-bold">Pendaftaran PT</h6>
+        </div>
+        <div class="border-1 border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/920991ef44ede93b9fada29479094e73b6598280.png" alt="">
+          <h6 class="font-bold">Jasa Pembukuan</h6>
+        </div>
+        <div class="border-1  border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/0c2b4be93b3361cefe0e290900fb4ec19dc3a368.png" alt="">
+          <h6 class="font-bold">E-Faktur Jasa</h6>
+        </div>
+        </div>
+        <div class="grid-cols-4 flex text-center m-4 px-10">
+        <div class="border-1  border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/920991ef44ede93b9fada29479094e73b6598280.png" alt="">
+          <h6 class="font-bold">Jasa Pembukuan</h6>
+        </div>
+        <div class="border-1  border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/5768a22b2de1463b9ef61d46f0240e015a49006b.png" alt="">
+          <h6 class="font-bold">Pendaftaran PT</h6>
+        </div>
+        <div class="border-1  border-gray-300 px-2 pt-0 pb-2 m-2 rounded-xl shadow-xl hover:bg-[#6fa9ab]">
+          <img src="image/0c2b4be93b3361cefe0e290900fb4ec19dc3a368.png" alt="">
+          <h6 class="font-bold">E-Faktur Jasa</h6>
+        </div>
+        <div class="border-1 border-none px-8 m-2 rounded-xl">
+        <h2 class="text-2xl pt-14 pb-10">Selengkapnya</h2>
+        <button class="border-1 px-10 py-2 m-2 border-none">
+          <a href="#home"><img src="image/panah.png" alt=""></a>
+        </button>
+        </div>
+        </div>
+     </section>
+
+<!-- Footer -->
+<footer class="bg-[#6fa9ab] text-white py-10 px-10">
+  <div class="flex grid-cols-4 gap-40 px-4 lg:px-20">
+
+    <!-- Kolom 1: Logo & Alamat -->
+    <div>
+      <img src="image/insania-removebg-preview.png" alt="Logo Insania" class="w-32 mb-4">
+      <div class="flex items-start mb-3">
+        <img src="image/rumah.png" alt="Alamat" class="h-6 w-6 mt-1">
+        <p class="pl-2 text-sm font-bold">
+          Jl. Perintis Kemerdekaan <br>No.59, Kota Makassar
+        </p>
+      </div>
+      <div class="flex items-start">
+        <img src="image/telepon.png" alt="Kontak" class="h-5 w-5 mt-1">
+        <p class="pl-2 text-sm font-bold">
+          +62 81-2345-6782 <br>insaniasinergia@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <!-- Kolom 2: Layanan -->
+    <div>
+      <h3 class="font-bold text-lg mb-3">Layanan Insania Sinergia</h3>
+      <ul class="space-y-2 text-sm">
+        <li>Jasa Pembukuan</li>
+        <li>Jasa Pendampingan</li>
+        <li>Konsultasi Pajak</li>
+        <li>Pembuatan & Perubahan Akta</li>
+        <li>Kuasa Hukum Pengadilan Pajak</li>
+      </ul>
+    </div>
+
+    <!-- Kolom 3: Sumber Data -->
+    <div>
+      <h3 class="font-bold text-lg mb-3">Sumber Data</h3>
+      <ul class="space-y-2 text-sm">
+        <li>FAQ</li>
+        <li>Studi Kasus</li>
+      </ul>
+    </div>
+
+    <!-- Kolom 4: Company -->
+    <div>
+      <h3 class="font-bold text-lg mb-3">Company</h3>
+      <ul class="space-y-2 text-sm">
+        <li>About</li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li>Youtube</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

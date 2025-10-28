@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- bedanya span sama div: kalo span tulisan kalo div buat pembungkus  -->
+    <!-- kalo pake block maka dia full satu layar kalo nambahin item baru maka dia turun kebawah  -->
+    <div class="bg-blue-300 block">Kotak 1 (block)</div>
+    <div class="bg-blue-500 block">Kotak 2 (block)</div>
+
+    <br>
+    <!-- kalo pake inline dia kepinggir karena warnanya atau besarnya sesuai tulisan/konten dan nggak bisa ditambahin heigh ataupun widht -->
+    <span class="bg-amber-500 inline">Kotak 1 (inline)</span>
+    <span class="bg-amber-700 inline">Kotak 2 (inline)</span>
+
+    <br><br>
+    <!-- bedanya w h nya bisa diatur -->
+    <span class="bg-pink-700 inline-block w-24 h-12">Kotak 1 (inline-block)</span>
+    <span class="bg-pink-200 inline-block w-24 h-12">Kotak 2 (inline-block)</span>
+
+    <br><br>
+    <!-- flex itu berjejer secara horizontal seharusnya ke samping tapi kalo mau vertical maka tambahin flex col 
+    dan  flex nya harus dua dipakai karena untuk biar sejajar rata tengah,
+    mau ngeletakin ketengah atau kanan kiri trus flex itu berteman (harus)dengan
+    Justify = atur arah horizontal mau ke kanan atau ke kiri,
+    Gap = atur jarak antar item, 
+    Items = pengganti align untuk atur arah vertikal -->
+    <div class="flex flex-col gap-2 bg-amber-100 p-2">
+    <div class=" bg-amber-300 w-16 h-16">A</div>
+    <div class=" bg-amber-500 w-16 h-16">B</div>
+    <div class=" bg-amber-700 w-16 h-16">C</div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" 
+    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg>
+
+
+</body>
+</html>

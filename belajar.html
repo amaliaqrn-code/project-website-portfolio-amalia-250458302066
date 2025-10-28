@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahra Laundry</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Smooth scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.pinimg.com/1200x/a5/1d/88/a51d887d0d3a2f8ff2f4e72e1486235c.jpg">
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-blue-900 shadow-lg z-50">
+    <!-- 
+      sticky        = posisi navbar nempel di atas saat di-scroll
+      top-0         = posisinya menempel di bagian paling atas
+      bg-blue-900   = background biru tua (warna bawaan Tailwind)
+      shadow-lg     = kasih bayangan besar pada navbar
+      z-50          = z-index tinggi biar navbar selalu di atas elemen lain
+    -->
+
+    <div class="container mx-auto px-4 flex justify-between items-center h-16">
+      <!-- 
+        container        = memberi lebar maksimum sesuai ukuran layar
+        mx-auto          = margin kiri-kanan otomatis (biar center)
+        px-4             = padding horizontal 1rem (16px)
+        flex             = aktifkan flexbox
+        justify-between  = jarak antar elemen di dalam flex → kiri & kanan
+        items-center     = semua item vertikal rata tengah
+        h-16             = tinggi container = 4rem (64px)
+      -->
+
+      <h1 class="text-xl font-bold text-white">
+        <!-- 
+          text-xl    = ukuran teks besar (sekitar 20px)
+          font-bold  = teks tebal
+          text-white = teks warna putih
+        -->
+        <a href="#home">Zahra Laundry</a>
+        <!-- href="#home" = link ke section dengan id="home" -->
+      </h1>
+
+      <!-- Menu desktop -->
+      <div class="hidden md:flex space-x-6 text-slate-300 font-semibold ">
+        <!-- 
+          hidden         = disembunyikan di semua layar
+          md:flex        = baru muncul (jadi flex) di layar medium (≥768px)
+          space-x-6      = jarak horizontal antar elemen anak = 1.5rem
+          text-slate-300 = warna teks abu terang
+          font-semibold  = ketebalan teks sedang
+        -->
+
+        <!-- Link menu -->
+        <a href="#home" class="hover:text-orange-400">Home</a>
+        <!-- hover:text-orange-400 = saat hover teks jadi oranye -->
+
+        <a href="#layanan" class="hover:text-orange-400">Layanan</a>
+        <a href="#harga" class="hover:text-orange-400">Harga</a>
+        <a href="#testimoni" class="hover:text-orange-400">Testimoni</a>
+        <a href="#kontak" class="hover:text-orange-400">Kontak</a>
+      </div>
+    </div>
+
+    <!-- Hamburger (untuk mobile) -->
+    <button
+      id="hamburger"
+      class="md:hidden px-2 pt-1 pb-2 rounded hover:bg-slate-800 focus:outline-none focus:ring-2
+       focus:ring-orange-500 absolute right-4 top-4"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu">
+      <!-- 
+        id="hamburger"      = identitas unik untuk tombol (dipanggil JS)
+        md:hidden           = disembunyikan di layar medium ke atas
+        px-2                = padding kiri-kanan 0.5rem
+        pt-1                = padding top 0.25rem
+        pb-2                = padding bottom 0.5rem
+        rounded             = sudut membulat
+        hover:bg-slate-800  = saat hover background abu gelap
+        focus:outline-none  = hilangkan garis fokus default
+        focus:ring-2        = tambahkan efek ring saat fokus
+        focus:ring-orange-500 = ring warna oranye
+        absolute            = posisinya absolute
+        right-4             = jarak 1rem dari kanan
+        top-4               = jarak 1rem dari atas
+        aria-expanded       = atribut aksesibilitas (default false)
+        aria-controls       = tombol ini mengontrol #mobile-menu
+        aria-label          = label deskripsi untuk pembaca layar
+      -->
+
+      <!-- Icon open (hamburger menu) -->
+      <svg id="icon-open" class="w-6 h-6 text-white"
+        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <!-- 
+          id="icon-open"       = icon menu (akan ditampilkan default)
+          w-6 h-6              = ukuran 24x24px
+          text-white           = warna garis putih
+          fill="none"          = tanpa warna isi
+          stroke="currentColor"= warna garis mengikuti text color
+          viewBox="0 0 24 24"  = kanvas 24x24
+          xmlns                = namespace SVG
+        -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+        <!-- 
+          stroke-linecap="round" = ujung garis bulat
+          stroke-linejoin="round"= sudut garis bulat
+          stroke-width="2"       = ketebalan garis
+          d="..."               = path → gambar 3 garis horizontal
+        -->
+      </svg>
+
+      <!-- Icon close (X) -->
+      <svg id="icon-close" class="w-6 h-6 text-white hidden"
+        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <!-- hidden = default disembunyikan -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+        <!-- path ini membentuk tanda silang (X) -->
+      </svg>
+    </button>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <!-- 
+        id="mobile-menu" = target dari hamburger
+        hidden           = default disembunyikan
+        md:hidden        = tetap hidden di layar besar
+      -->
+      <a href="#home" class="block px-3 py-2 text-slate-300 hover:text-orange-400">Home</a>
+      <!-- block = tampil penuh 1 baris -->
+      <a href="#layanan" class="block px-3 py-2 text-slate-300 hover:text-orange-400">Layanan</a>
+      <a href="#harga" class="block px-3 py-2 text-slate-300 hover:text-orange-400">Harga</a>
+      <a href="#testimoni" class="block px-3 py-2 text-slate-300 hover:text-orange-400">Testimoni</a>
+      <a href="#kontak" class="block px-3 py-2 bg-amber-400 text-black font-bold hover:bg-amber-500">Kontak</a>
+      <!-- bg-amber-400 = background kuning -->
+      <!-- hover:bg-amber-500 = saat hover jadi lebih gelap -->
+    </div>
+  </nav>
+
+
+<!-- Hero -->
+  <!-- Bagian pembuka website (Hero Section), biasanya berisi judul & tagline -->
+  <section 
+    id="home"
+    class="bg-blue-700 text-white py-20 text-center"> 
+      <!-- class TailwindCSS:
+        bg-blue-700  -> background biru gelap (shade 700)
+        text-white   -> warna teks putih
+        py-20        -> padding atas & bawah sebesar 20 (≈ 5rem)
+        text-center  -> semua teks di dalam section rata tengah
+      -->
+    
+    <!-- Judul utama Hero -->
+    <h2 
+      class="text-4xl font-bold mb-4">
+        <!-- class TailwindCSS:
+          text-4xl   -> ukuran teks besar (heading besar)
+          font-bold  -> teks tebal
+          mb-4       -> margin bawah 4 (≈ 1rem), memberi jarak ke teks di bawahnya
+        -->
+        Selamat Datang di Zahra Laundry
+    </h2>
+
+    <!-- Sub-judul / tagline -->
+    <p 
+      class="text-lg">
+        <!-- class TailwindCSS:
+          text-lg -> ukuran teks sedikit lebih besar dari normal
+        -->
+        Bersih, Cepat, Wangi, dan Terjangkau
+    </p>
+
+  </section>
+
+    <!-- Layanan -->
+  <!-- Section untuk menampilkan layanan-layanan laundry -->
+  <section id="layanan" class="py-16 bg-gray-100">
+      <!-- class TailwindCSS:
+        py-16        -> padding atas & bawah besar (≈ 4rem)
+        bg-gray-100  -> background abu-abu muda
+      -->
+
+    <div class="container mx-auto text-center">
+      <!-- container  -> memberi max-width & padding default di Tailwind (rapi di tengah)
+           mx-auto    -> margin kiri & kanan auto (membuat konten rata tengah di layar besar)
+           text-center-> isi teks di dalamnya rata tengah
+      -->
+
+      <!-- Judul Section -->
+      <h3 class="text-3xl font-bold mb-8">
+        <!-- text-3xl  -> ukuran teks besar
+             font-bold -> teks tebal
+             mb-8      -> margin bawah (≈ 2rem), kasih jarak ke grid
+        -->
+        Layanan Kami
+      </h3>
+
+      <!-- Grid Layanan -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- grid            -> aktifkan grid layout
+             grid-cols-1     -> di layar kecil: 1 kolom
+             md:grid-cols-3  -> di layar medium ke atas: 3 kolom
+             gap-6           -> jarak antar item grid 6 (≈ 1.5rem)
+        -->
+
+        <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <!-- bg-white        -> background putih
+               shadow-lg       -> bayangan besar (efek depth)
+               rounded-xl      -> sudut elemen membulat (besar)
+               overflow-hidden -> konten yang keluar area card disembunyikan (buat gambar rapi)
+               h-full          -> tinggi penuh (agar semua card punya tinggi sama di grid)
+               flex flex-col   -> flexbox dengan arah kolom (supaya konten bisa diatur vertikal)
+               hover:scale-105 -> saat hover, card diperbesar 105%
+               transition      -> animasi halus saat berubah (hover scale)
+          -->
+
+          <!-- Gambar -->
+          <img 
+            src="https://i.pinimg.com/736x/4d/35/7d/4d357d83ad1b582fb6d25d5bd6cf293b.jpg"
+            class="w-full h-56 object-cover"
+            alt="Cuci Kiloan">
+            <!-- src          -> URL gambar
+                 w-full       -> lebar penuh card
+                 h-56         -> tinggi fixed 56 (≈ 14rem)
+                 object-cover -> gambar dipotong agar tetap proporsional & menutupi area
+                 alt          -> teks alternatif (untuk SEO & aksesibilitas)
+            -->
+
+          <!-- Isi Card -->
+          <div class="p-4 flex-1">
+            <!-- p-4   -> padding 1rem
+                 flex-1 -> isi card "ngambil ruang tersisa" (biar semua card sama rata tinggi)
+            -->
+
+            <h4 class="font-semibold text-xl mb-2">
+              <!-- font-semibold -> teks tebal sedang
+                   text-xl       -> ukuran teks besar
+                   mb-2          -> jarak bawah 0.5rem
+              -->
+              Cuci Kiloan
+            </h4>
+
+            <p class="text-gray-600">
+              <!-- text-gray-600 -> teks abu-abu (lebih lembut dari hitam) -->
+              Layanan hemat untuk pakaian sehari-hari Anda.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <img src="https://i.pinimg.com/1200x/9d/8e/cd/9d8ecdbb7c83e78e1325539f0a699b3c.jpg"
+           class="w-full h-56 object-cover" alt="Cuci Satuan">
+          <div class="p-4 flex-1">
+            <h4 class="font-semibold text-xl mb-2">Cuci Satuan</h4>
+            <p class="text-gray-600">Cocok untuk pakaian spesial dan berharga.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden h-full flex flex-col hover:scale-105 transition">
+          <img src="https://i.pinimg.com/1200x/33/3a/60/333a6009e79964ef5c625db241ce3460.jpg" 
+          class="w-full h-56 object-cover" alt="Setrika">
+          <div class="p-4 flex-1">
+            <h4 class="font-semibold text-xl mb-2">Setrika</h4>
+            <p class="text-gray-600">Pakaian licin, rapi, dan wangi.</p>
+          </div>
+        </div>
+
+      </div> <!-- /grid -->
+    </div> <!-- /container -->
+  </section>
+
+
+  <!-- Harga -->
+<!-- Section Harga -->
+<section id="harga" class="py-16"> <!-- py-16 = padding vertikal atas & bawah 64px -->
+  <div class="container mx-auto text-center"> <!-- container = lebar max responsif, 
+    mx-auto = center horizontal, text-center = teks rata tengah -->
+    
+    <!-- Judul Section -->
+    <h3 class="text-3xl font-bold mb-8">Daftar Harga</h3>
+    <!-- text-3xl = ukuran font besar, font-bold = tebal, mb-8 = margin bottom 32px -->
+    
+    <!-- Grid Card Harga -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> 
+      <!-- grid = pakai grid layout, grid-cols-1 = default 1 kolom, md:grid-cols-3 = 3 kolom di layar medium ke atas, 
+       gap-6 = jarak antar grid 24px -->
+
+      <!-- Card 1 -->
+      <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+        <!-- p-6 = padding 24px, bg-white = background putih, rounded-xl = sudut melengkung, 
+        shadow = bayangan, hover:scale-105 = membesar saat hover, transition = animasi halus -->
+        <h4 class="text-xl font-semibold mb-2">Cuci Kiloan</h4>
+        <!-- text-xl = ukuran font 20px, font-semibold = tebal sedang, mb-2 = margin bawah 8px -->
+        <p class="text-gray-600 mb-2">Rp 7.000 / kg</p>
+        <!-- text-gray-600 = warna abu-abu gelap, mb-2 = margin bawah 8px -->
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+        <h4 class="text-xl font-semibold mb-2">Cuci Satuan</h4>
+        <p class="text-gray-600 mb-2">Mulai Rp 10.000</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+        <h4 class="text-xl font-semibold mb-2">Setrika</h4>
+        <p class="text-gray-600 mb-2">Rp 5.000 / kg</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimoni -->
+<section id="testimoni" class="py-16 bg-gray-100"> <!-- py-16 = padding vertikal 64px, bg-gray-100 = background abu-abu terang -->
+  <div class="container mx-auto text-center"> <!-- container = lebar max responsif, 
+  mx-auto = center horizontal, text-center = teks rata tengah -->
+    
+    <!-- Judul Testimoni -->
+    <h3 class="text-3xl font-bold mb-8">Testimoni Pelanggan</h3>
+    <!-- text-3xl = font besar, font-bold = tebal, mb-8 = margin bottom 32px -->
+
+    <!-- Grid Testimoni -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> 
+      <!-- grid = pakai grid layout, grid-cols-1 = default 1 kolom, md:grid-cols-3 = 3 kolom di layar medium ke atas, 
+       gap-6 = jarak antar grid 24px -->
+
+      <!-- Card Testimoni 1 -->
+      <div class="bg-white shadow p-6 rounded-xl hover:scale-105 transition">
+        <!-- bg-white = background putih, shadow = bayangan, p-6 = padding 24px, rounded-xl = sudut melengkung, 
+        hover:scale-105 = membesar saat hover, transition = animasi halus -->
+        <p class="italic">"Pakaian saya bersih, wangi, dan rapi. Terima kasih Zahra Laundry!"</p> <!-- italic = teks miring -->
+        <p class="mt-4 font-bold">- Ani</p> <!-- mt-4 = margin top 16px, font-bold = tebal -->
+      </div>
+
+      <!-- Card Testimoni 2 -->
+      <div class="bg-white shadow p-6 rounded-xl hover:scale-105 transition">
+        <p class="italic">"Pelayanan cepat dan hasil memuaskan. Recommended!"</p>
+        <p class="mt-4 font-bold">- Budi</p>
+      </div>
+
+      <!-- Card Testimoni 3 -->
+      <div class="bg-white shadow p-6 rounded-xl hover:scale-105 transition">
+        <p class="italic">"Pakaian bersih dan wangi, selesai tepat waktu. Terimakasih!"</p>
+        <p class="mt-4 font-bold">- Dian</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Kontak -->
+<section id="kontak" class="py-16 text-center bg-blue-700 text-white">
+  <!-- py-16 = padding vertikal 64px, text-center = teks rata tengah, bg-blue-700 = background biru tua, text-white = teks putih -->
+
+  <h3 class="text-3xl font-bold mb-4">Hubungi Kami</h3> <!-- text-3xl = font besar, font-bold = tebal, mb-4 = margin bottom 16px -->
+  <p class="mb-6">WhatsApp: 0812-3456-7890</p> <!-- mb-6 = margin bottom 24px -->
+
+  <a href="https://wa.me/6281267197668?text=Halo%20saya%20mau%20pesan%20laundry"
+     class="px-6 py-3 bg-amber-400 text-black rounded-lg font-bold hover:bg-amber-500">
+     <!-- px-6 py-3 = padding horizontal 24px, vertikal 12px, bg-amber-400 = background kuning, text-black = teks hitam, 
+     rounded-lg = sudut membulat, font-bold = tebal, hover:bg-amber-500 = warna background berubah saat hover -->
+     Chat via WhatsApp
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-blue-900 text-white text-center py-4">
+  <!-- bg-blue-900 = background biru sangat gelap, text-white = teks putih, text-center = teks rata tengah, 
+  py-4 = padding vertikal 16px -->
+  <p>&copy; 2025 Zahra Laundry. All rights reserved.</p>
+</footer>
+
+<!-- Script Hamburger -->
+<script>
+  const hamburger = document.getElementById("hamburger"); // Ambil button hamburger
+  const mobileMenu = document.getElementById("mobile-menu"); // Ambil menu mobile
+  const iconOpen = document.getElementById("icon-open"); // Icon garis 3 (open)
+  const iconClose = document.getElementById("icon-close"); // Icon silang (close)
+
+  // Event klik hamburger
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden"); // toggle show/hide menu
+    iconOpen.classList.toggle("hidden");   // toggle icon open
+    iconClose.classList.toggle("hidden");  // toggle icon close
+  });
+</script>
+
+</body>
+</html>
